@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+    <h1>Let me tell you a joke :D</h1>
+ 
+    <form id="myForm" method="POST" action="/submit">
+        <div class="category">
+            <h3>Select category:</h3>
+            <input type="radio" id="programming" name="jokeCategory" value="program">
+            <label for="programming">Programming</label>
+
+            <input type="radio" id="dark" name="jokeCategory" value="dark">
+            <label for="dark">Dark</label>
+
+            <input type="radio" id="pun" name="jokeCategory" value="pun">
+            <label for="pun">Pun</label>
+
+            <input type="radio" id="spooky" name="jokeCategory" value="spooky">
+            <label for="spooky">Spooky</label>
+        </div>
+
+        <div class="category-blacklist">
+        <h3>Select flags to blacklist:</h3>
+        <input type="checkbox" id="NSFWInput" name="categoryBlacklist" value="NSFW">
+        <label for="NSFWInput">NSFW</label>
+
+        <input type="checkbox" id="religiousInput" name="categoryBlacklist" value="religious">
+        <label for="religiousInput">Religious</label>
+
+        <input type="checkbox" id="racistInput" name="categoryBlacklist" value="racist">
+        <label for="racistInput">Racist</label>
+
+        <input type="checkbox" id="sexistInput" name="categoryBlacklist" value="sexist">
+        <label for="sexistInput">Sexist</label>
+        </div>
+
+        <div class="id">
+            <h3>Search by joke ID:</h3>
+            <label for="id">Search by joke ID:</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <input id="post" type="submit" value="POST" formaction="/submit">
+       </form>
+       
+
+    </div>
+    <% if(locals.content){%>
+    <div class="jokeArea">
+        <div class="responseArea">
+         <p>
+             <%=content %>
+         </p>
+        </div>
+        <% } else{ %>
+            <p> No data yet. </p>
+
+        <%}%>
+    
+</body>
+</html>
